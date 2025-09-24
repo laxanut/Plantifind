@@ -20,7 +20,7 @@
       border-bottom: 5px solid #2a5d2c;
     }
     main {
-      max-width: 950px;
+      max-width: 900px;
       margin: 30px auto;
       padding: 20px;
       background: white;
@@ -48,7 +48,7 @@
     .checkboxes {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 8px;
       margin: 10px 0;
     }
     label {
@@ -56,12 +56,6 @@
       padding: 8px;
       border-radius: 8px;
       cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .severity {
-      margin-left: 10px;
     }
     .result {
       margin-top: 20px;
@@ -69,11 +63,6 @@
       background: #eafbea;
       border-left: 5px solid #3b873e;
       border-radius: 10px;
-    }
-    .nutrient {
-      color: #2a5d2c;
-      text-decoration: underline;
-      cursor: pointer;
     }
     footer {
       text-align: center;
@@ -83,30 +72,11 @@
       margin-top: 30px;
       border-top: 5px solid #2a5d2c;
     }
-    .popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      border: 2px solid #3b873e;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 400px;
-      z-index: 1000;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
-    .popup button {
-      margin-top: 10px;
-      background: #3b873e;
-      border: none;
-    }
   </style>
 </head>
 <body>
   <header>
-    🌱 Plant Nutrient Deficiency Helper 🌿
+    Plant Nutrient Deficiency Helper
   </header>
   <main>
     <h2>Step 1: Choose Plant Type</h2>
@@ -118,194 +88,88 @@
       <option value="flower">Flower</option>
     </select>
 
-    <h2>Step 2: Select Symptoms (and severity)</h2>
+    <h2>Step 2: Select Symptoms (choose all that apply)</h2>
     <div class="checkboxes">
-      <label><input type="checkbox" value="yellowLeaves"> Yellowing of older leaves 
-        <select class="severity"><option>Mild</option><option>Medium</option><option>Severe</option></select>
-      </label>
-      <label><input type="checkbox" value="stuntedGrowth"> Stunted growth 
-        <select class="severity"><option>Mild</option><option>Medium</option><option>Severe</option></select>
-      </label>
-      <label><input type="checkbox" value="purpleLeaves"> Purplish leaves 
-        <select class="severity"><option>Mild</option><option>Medium</option><option>Severe</option></select>
-      </label>
-      <label><input type="checkbox" value="brownEdges"> Brown leaf edges 
-        <select class="severity"><option>Mild</option><option>Medium</option><option>Severe</option></select>
-      </label>
-      <label><input type="checkbox" value="weakStem"> Weak / thin stems 
-        <select class="severity"><option>Mild</option><option>Medium</option><option>Severe</option></select>
-      </label>
-      <label><input type="checkbox" value="spots"> Interveinal leaf spots 
-        <select class="severity"><option>Mild</option><option>Medium</option><option>Severe</option></select>
-      </label>
-      <label><input type="checkbox" value="newLeavesYellow"> New leaves yellowing first 
-        <select class="severity"><option>Mild</option><option>Medium</option><option>Severe</option></select>
-      </label>
-      <label><input type="checkbox" value="curledLeaves"> Curling or distorted leaves 
-        <select class="severity"><option>Mild</option><option>Medium</option><option>Severe</option></select>
-      </label>
-      <label><input type="checkbox" value="poorFlowering"> Poor flowering / fruit set 
-        <select class="severity"><option>Mild</option><option>Medium</option><option>Severe</option></select>
-      </label>
-      <label><input type="checkbox" value="necrosis"> Necrosis (dead tissue patches) 
-        <select class="severity"><option>Mild</option><option>Medium</option><option>Severe</option></select>
-      </label>
-      <label><input type="checkbox" value="leafDrop"> Premature leaf drop 
-        <select class="severity"><option>Mild</option><option>Medium</option><option>Severe</option></select>
-      </label>
-      <label><input type="checkbox" value="thinRoots"> Poor root growth 
-        <select class="severity"><option>Mild</option><option>Medium</option><option>Severe</option></select>
-      </label>
+      <label><input type="checkbox" value="yellowLeaves"> Yellowing of older leaves</label>
+      <label><input type="checkbox" value="stuntedGrowth"> Stunted growth</label>
+      <label><input type="checkbox" value="purpleLeaves"> Purplish leaves</label>
+      <label><input type="checkbox" value="brownEdges"> Brown leaf edges</label>
+      <label><input type="checkbox" value="weakStem"> Weak / thin stems</label>
+      <label><input type="checkbox" value="spots"> Interveinal leaf spots</label>
+      <label><input type="checkbox" value="newLeavesYellow"> New leaves yellowing first</label>
+      <label><input type="checkbox" value="curledLeaves"> Curling or distorted leaves</label>
+      <label><input type="checkbox" value="poorFlowering"> Poor flowering / fruit set</label>
+      <label><input type="checkbox" value="necrosis"> Necrosis (dead tissue patches)</label>
+      <label><input type="checkbox" value="leafDrop"> Premature leaf drop</label>
+      <label><input type="checkbox" value="thinRoots"> Poor root growth</label>
+      <label><input type="checkbox" value="interveinalChlorosis"> Interveinal chlorosis (yellow between veins)</label>
+      <label><input type="checkbox" value="slowFlowering"> Delayed flowering or maturity</label>
+      <label><input type="checkbox" value="smallLeaves"> Smaller than normal leaves</label>
+      <label><input type="checkbox" value="poorSeed"> Poor seed or grain development</label>
+      <label><input type="checkbox" value="wilting"> Wilting even with sufficient water</label>
+      <label><input type="checkbox" value="chlorosisYoungLeaves"> Chlorosis in young leaves</label>
+      <label><input type="checkbox" value="dieback"> Shoot dieback</label>
+      <label><input type="checkbox" value="weakRootNodules"> Weak root nodules (legumes)</label>
+      <label><input type="checkbox" value="overallPale"> Overall pale green color</label>
     </div>
 
     <br>
     <button onclick="diagnose()">Check Deficiency</button>
-    <button onclick="downloadReport()">Download Diagnosis (PDF)</button>
+    <button id="downloadBtn" onclick="downloadPDF()" disabled>Download PDF Report</button>
 
     <div id="output" class="result" style="display:none;"></div>
   </main>
 
   <footer>
-    🌻 Made for Farmers | School Project © 2025
+    Made for Farmers | School Project © 2025
   </footer>
-
-  <div id="popup" class="popup">
-    <div id="popupContent"></div>
-    <button onclick="closePopup()">Close</button>
-  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
     const deficiencyData = {
-      yellowLeaves: { 
-        nutrient: "Nitrogen (N)", 
-        organic: "Apply compost, manure, or grow legume cover crops.",
-        synthetic: "Use urea or ammonium nitrate.",
-        info: "Nitrogen is vital for leafy growth and chlorophyll."
-      },
-      stuntedGrowth: { 
-        nutrient: "Phosphorus (P)", 
-        organic: "Bone meal, rock phosphate, compost rich in P.",
-        synthetic: "Apply superphosphate fertilizer.",
-        info: "Phosphorus supports root growth, flowering, and energy transfer."
-      },
-      purpleLeaves: { 
-        nutrient: "Phosphorus (P)", 
-        organic: "Bone meal, manure.",
-        synthetic: "Superphosphate fertilizer.",
-        info: "Deficiency often causes purplish older leaves."
-      },
-      brownEdges: { 
-        nutrient: "Potassium (K)", 
-        organic: "Banana peel compost, wood ash, kelp meal.",
-        synthetic: "Potassium sulfate or muriate of potash.",
-        info: "Potassium strengthens plants and improves water regulation."
-      },
-      weakStem: {
-        nutrient: "Calcium (Ca)",
-        organic: "Crushed eggshells, lime, gypsum.",
-        synthetic: "Calcium nitrate fertilizer.",
-        info: "Calcium strengthens stems, roots, and cell walls."
-      },
-      spots: {
-        nutrient: "Magnesium (Mg)",
-        organic: "Epsom salt (magnesium sulfate) in water, compost.",
-        synthetic: "Magnesium sulfate fertilizer.",
-        info: "Magnesium is part of chlorophyll and prevents interveinal chlorosis."
-      },
-      necrosis: {
-        nutrient: "Sulfur (S)",
-        organic: "Elemental sulfur, gypsum, compost rich in S.",
-        synthetic: "Ammonium sulfate fertilizer.",
-        info: "Sulfur is important for protein formation and enzymes."
-      },
-      newLeavesYellow: {
-        nutrient: "Iron (Fe)",
-        organic: "Compost, foliar spray with chelated iron.",
-        synthetic: "Iron sulfate or chelated Fe solutions.",
-        info: "Iron deficiency causes chlorosis in young leaves."
-      },
-      interveinalYellowing: {
-        nutrient: "Manganese (Mn)",
-        organic: "Seaweed extract, compost tea.",
-        synthetic: "Manganese sulfate spray.",
-        info: "Manganese helps photosynthesis and enzyme activation."
-      },
-      poorFlowering: {
-        nutrient: "Zinc (Zn)",
-        organic: "Compost, kelp, manure.",
-        synthetic: "Zinc sulfate spray.",
-        info: "Zinc regulates growth hormones and flower/fruit formation."
-      },
-      leafDrop: {
-        nutrient: "Copper (Cu)",
-        organic: "Compost with trace minerals, manure.",
-        synthetic: "Copper sulfate spray.",
-        info: "Copper is essential for enzyme systems and lignin synthesis."
-      },
-      curledLeaves: {
-        nutrient: "Boron (B)",
-        organic: "Borax in very small amounts, compost with boron.",
-        synthetic: "Boric acid solutions.",
-        info: "Boron is important for cell walls, flowers, and fruit."
-      },
-      thinRoots: {
-        nutrient: "Molybdenum (Mo)",
-        organic: "Legume rotations, compost.",
-        synthetic: "Ammonium molybdate.",
-        info: "Molybdenum helps plants use nitrogen effectively."
-      },
-      wilting: {
-        nutrient: "Chlorine (Cl)",
-        organic: "Seaweed extract, manure.",
-        synthetic: "Potassium chloride fertilizer.",
-        info: "Chlorine aids water regulation and photosynthesis."
-      },
-      poorLegumeGrowth: {
-        nutrient: "Nickel (Ni)",
-        organic: "Trace amounts in manure, compost.",
-        synthetic: "Nickel sulfate (rare).",
-        info: "Nickel is needed in very small amounts for legumes."
-      }
+      yellowLeaves: { nutrient: "Nitrogen (N)", solution: "Organic solution: compost, manure. Synthetic solution: urea, ammonium nitrate." },
+      stuntedGrowth: { nutrient: "Phosphorus (P)", solution: "Organic solution: bone meal, rock phosphate. Synthetic solution: superphosphate." },
+      purpleLeaves: { nutrient: "Phosphorus (P)", solution: "Organic solution: compost rich in P. Synthetic solution: triple superphosphate." },
+      brownEdges: { nutrient: "Potassium (K)", solution: "Organic solution: banana peels, wood ash. Synthetic solution: potassium sulfate, muriate of potash." },
+      weakStem: { nutrient: "Calcium (Ca)", solution: "Organic solution: crushed eggshells, lime. Synthetic solution: gypsum, calcium nitrate." },
+      spots: { nutrient: "Magnesium (Mg)", solution: "Organic solution: compost with dolomite. Synthetic solution: magnesium sulfate (Epsom salt)." },
+      newLeavesYellow: { nutrient: "Iron (Fe)", solution: "Organic solution: compost with iron-rich matter. Synthetic solution: chelated iron sprays." },
+      curledLeaves: { nutrient: "Boron (B)", solution: "Organic solution: boron-rich compost. Synthetic solution: borax, boric acid (use sparingly)." },
+      poorFlowering: { nutrient: "Zinc (Zn)", solution: "Organic solution: manure, compost. Synthetic solution: zinc sulfate." },
+      necrosis: { nutrient: "Sulfur (S)", solution: "Organic solution: manure, compost. Synthetic solution: elemental sulfur, gypsum." },
+      leafDrop: { nutrient: "Copper (Cu)", solution: "Organic solution: compost with trace minerals. Synthetic solution: copper sulfate sprays." },
+      thinRoots: { nutrient: "Molybdenum (Mo)", solution: "Organic solution: legume inoculants. Synthetic solution: ammonium molybdate." },
+      interveinalChlorosis: { nutrient: "Manganese (Mn)", solution: "Organic solution: seaweed extract. Synthetic solution: manganese sulfate." },
+      slowFlowering: { nutrient: "Phosphorus (P)", solution: "Organic solution: rock phosphate. Synthetic solution: diammonium phosphate (DAP)." },
+      smallLeaves: { nutrient: "Zinc (Zn)", solution: "Organic solution: compost with animal manure. Synthetic solution: zinc oxide or zinc sulfate." },
+      poorSeed: { nutrient: "Phosphorus (P)", solution: "Organic solution: bone meal. Synthetic solution: phosphate fertilizers." },
+      wilting: { nutrient: "Potassium (K)", solution: "Organic solution: composted banana stems. Synthetic solution: potassium chloride." },
+      chlorosisYoungLeaves: { nutrient: "Iron (Fe)", solution: "Organic solution: iron-rich compost. Synthetic solution: foliar iron sprays." },
+      dieback: { nutrient: "Calcium (Ca)", solution: "Organic solution: lime, bone meal. Synthetic solution: calcium nitrate." },
+      weakRootNodules: { nutrient: "Cobalt (Co)", solution: "Organic solution: compost with trace minerals. Synthetic solution: cobalt chloride (rare use)." },
+      overallPale: { nutrient: "Nitrogen (N)", solution: "Organic solution: manure, compost. Synthetic solution: ammonium sulfate, urea." }
     };
 
     function diagnose() {
       const plant = document.getElementById('plantType').value;
-      const checkboxes = document.querySelectorAll('.checkboxes label');
+      const checkboxes = document.querySelectorAll('.checkboxes input:checked');
       const output = document.getElementById('output');
+      const downloadBtn = document.getElementById('downloadBtn');
 
-      if (!plant) {
+      if (!plant || checkboxes.length === 0) {
         output.style.display = "block";
-        output.innerHTML = "🌱 Please select a plant type and at least one symptom.";
+        output.innerHTML = "Please select a plant type and at least one symptom.";
+        downloadBtn.disabled = true;
         return;
       }
 
       let results = [];
-      checkboxes.forEach(label => {
-        const cb = label.querySelector('input');
-        const sev = label.querySelector('.severity').value;
-        if (cb.checked && deficiencyData[cb.value]) {
-          const info = deficiencyData[cb.value];
-          results.push(`<li>
-            <span class="nutrient" onclick="showInfo('${cb.value}')"><strong>${info.nutrient}</strong></span> 
-            (${sev})<br>
-            🌿 Organic: ${info.organic}<br>
-            🧪 Synthetic: ${info.synthetic}
-          </li>`);
+      checkboxes.forEach(cb => {
+        const info = deficiencyData[cb.value];
+        if (info) {
+          results.push(`<li><strong>${info.nutrient}</strong> → ${info.solution}</li>`);
         }
       });
-
-      if (results.length === 0) {
-        output.style.display = "block";
-        output.innerHTML = "🌱 Please select at least one symptom.";
-        return;
-      }
-
-      // Example combo logic
-      if (document.querySelector('input[value="yellowLeaves"]').checked &&
-          document.querySelector('input[value="stuntedGrowth"]').checked) {
-        results.push("<li><em>Combo: Nitrogen + Phosphorus deficiency likely together.</em></li>");
-      }
 
       output.style.display = "block";
       output.innerHTML = `
@@ -313,26 +177,21 @@
         <strong>Possible Deficiencies:</strong>
         <ul>${results.join("")}</ul>
       `;
+
+      downloadBtn.disabled = false;
     }
 
-    function showInfo(symptom) {
-      const popup = document.getElementById('popup');
-      const content = document.getElementById('popupContent');
-      const data = deficiencyData[symptom];
-      content.innerHTML = `<h3>${data.nutrient}</h3><p>${data.info}</p>`;
-      popup.style.display = "block";
-    }
-
-    function closePopup() {
-      document.getElementById('popup').style.display = "none";
-    }
-
-    function downloadReport() {
+    async function downloadPDF() {
       const { jsPDF } = window.jspdf;
+      const output = document.getElementById('output').innerHTML;
+      if (!output || document.getElementById('downloadBtn').disabled) return;
+
       const doc = new jsPDF();
-      doc.text("Plant Nutrient Deficiency Diagnosis", 10, 10);
-      doc.text(document.getElementById('output').innerText, 10, 20);
-      doc.save("diagnosis.pdf");
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(12);
+      doc.text("Plant Nutrient Deficiency Report", 20, 20);
+      doc.fromHTML(output, 20, 30);
+      doc.save("deficiency-report.pdf");
     }
   </script>
 </body>
