@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plant Nutrient Deficiency Helper</title>
+  <style>
+    body {
+      font-family: 'Trebuchet MS', sans-serif;
+      background: linear-gradient(#e0f7e9, #f7fff3);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #3b873e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.8em;
+      border-bottom: 5px solid #2a5d2c;
+    }
+    main {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #3b873e;
+    }
+    select, button {
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1em;
+      border-radius: 10px;
+      border: 2px solid #3b873e;
+    }
+    button {
+      background: #3b873e;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2a5d2c;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #eafbea;
+      border-left: 5px solid #3b873e;
+      border-radius: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #3b873e;
+      color: white;
+      margin-top: 30px;
+      border-top: 5px solid #2a5d2c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    🌱 Plant Nutrient Deficiency Helper 🌿
+  </header>
+  <main>
+    <h2>Step 1: Choose Plant Type</h2>
+    <select id="plantType">
+      <option value="">-- Select a plant type --</option>
+      <option value="tree">Tree</option>
+      <option value="herb">Herb</option>
+      <option value="crop">Crop</option>
+      <option value="flower">Flower</option>
+    </select>
+
+    <h2>Step 2: Select Symptoms</h2>
+    <select id="symptom">
+      <option value="">-- Select a symptom --</option>
+      <option value="yellowLeaves">Leaves turning yellow (chlorosis)</option>
+      <option value="stuntedGrowth">Stunted growth</option>
+      <option value="purpleLeaves">Leaves turning purple</option>
+      <option value="brownEdges">Brown / scorched leaf edges</option>
+      <option value="weakStem">Weak / thin stems</option>
+      <option value="spots">Spots on leaves</option>
+    </select>
+
+    <br>
+    <button onclick="diagnose()">Check Deficiency</button>
+
+    <div id="output" class="result" style="display:none;"></div>
+  </main>
+
+  <footer>
+    🌻 Made for Farmers | School Project © 2025
+  </footer>
+
+  <script>
+    const deficiencyData = {
+      yellowLeaves: {
+        nutrient: "Nitrogen (N)",
+        solution: "Apply composted manure, urea, or nitrogen-based fertilizers."
+      },
+      stuntedGrowth: {
+        nutrient: "Phosphorus (P)",
+        solution: "Add bone meal, rock phosphate, or compost rich in P."
+      },
+      purpleLeaves: {
+        nutrient: "Phosphorus (P)",
+        solution: "Use bone meal or superphosphate."
+      },
+      brownEdges: {
+        nutrient: "Potassium (K)",
+        solution: "Add wood ash, potassium sulfate, or compost with banana peels."
+      },
+      weakStem: {
+        nutrient: "Calcium (Ca)",
+        solution: "Apply lime or gypsum to soil."
+      },
+      spots: {
+        nutrient: "Magnesium (Mg)",
+        solution: "Use Epsom salt (magnesium sulfate) diluted in water."
+      }
+    };
+
+    function diagnose() {
+      const plant = document.getElementById('plantType').value;
+      const symptom = document.getElementById('symptom').value;
+      const output = document.getElementById('output');
+
+      if (!plant || !symptom) {
+        output.style.display = "block";
+        output.innerHTML = "🌱 Please select both plant type and symptom.";
+        return;
+      }
+
+      const info = deficiencyData[symptom];
+      output.style.display = "block";
+      output.innerHTML = `
+        <strong>Plant Type:</strong> ${plant}<br>
+        <strong>Possible Deficiency:</strong> ${info.nutrient}<br>
+        <strong>Solution:</strong> ${info.solution}
+      `;
+    }
+  </script>
+</body>
+</html>
